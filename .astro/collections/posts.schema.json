@@ -1,0 +1,47 @@
+{
+  "$ref": "#/definitions/posts",
+  "definitions": {
+    "posts": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "default": ""
+        },
+        "publishDate": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string",
+          "default": "uncategorized"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "image": {
+          "type": "string",
+          "default": ""
+        },
+        "author": {
+          "type": "string",
+          "default": "媽咪小編"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

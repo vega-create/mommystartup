@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const categories = [...new Set(posts.map(post => post.data.category))];
+  
+  return categories.map(category => ({
+    params: { category },
+    props: { 
+      category,
+      posts: posts.filter(post => post.data.category === category)
+        .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())
+    }
+  }));
+}
+
+const { category, posts } = Astro.props;
+---
+
+<Layout title={`${category} 文章`} description={`瀏覽所有 ${category} 相關文章`}>
+  <section class="section">
+    <h1 class="section-title">{category}</h1>
+    <p style="text-align: center; color: var(--text-light); margin-bottom: 40px;">
+      共 {posts.length} 篇文章
+    </p>
+    
+    <div class="posts-grid">
+      {posts.map(post => (
+        <a href={`/posts/${post.slug}/`} class="post-card">
+          <div class="post-card-image">
+            {post.data.image ? (
+              <img src={post.data.image} alt={post.data.title}>
+            ) : (
+              <div style="background: linear-gradient(135deg, var(--primary-light), var(--primary)); height: 100%;"></div>
+            )}
+            <span class="post-card-category">{post.data.category}</span>
+          </div>
+          <div class="post-card-content">
+            <h3 class="post-card-title">{post.data.title}</h3>
+            <p class="post-card-excerpt">{post.data.description}</p>
+            <p class="post-card-meta">{post.data.publishDate}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="/blog/" class="read-more">← 返回部落格</a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../site.config';
+import { getCollection } from 'astro:content';
+
+// 取得最新文章
+const allPosts = await getCollection('posts');
+const latestPosts = allPosts
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())
+  .slice(0, 6);
+---
+
+<Layout>
+  <!-- 跟著媽咪團好康 Section -->
+  <section class="section">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+      <div>
+        <p style="color: var(--primary-dark); font-size: 14px; margin-bottom: 10px;">不只跟團，也能成為開團的那個人</p>
+        <h2 style="font-size: 28px; margin-bottom: 20px; color: var(--text);">跟著媽咪團好康</h2>
+        <p style="color: var(--text-light); line-height: 2; margin-bottom: 20px;">
+          很多媽媽一開始只是想分享好物，<br>
+          慢慢才發現，其實這是一條可以被學會、被累積的路。
+        </p>
+        <p style="color: var(--text-light); line-height: 2; margin-bottom: 25px;">
+          我們不急著要你一次做到多好，<br>
+          而是陪你一步步理解團購背後真正重要的事情。
+        </p>
+        <a href="/blog/" class="read-more">了解更多</a>
+      </div>
+      <div>
+        <img src="https://mommystartup.com/wp-content/uploads/2025/12/freepik__candid-i-with-natural-textures-and-highly-realisti__74472-585x585.png" 
+             alt="媽咪團好康" 
+             style="border-radius: 20px; box-shadow: var(--shadow);">
+      </div>
+    </div>
+  </section>
+  
+  <!-- 媽咪精選好物 Section -->
+  <section class="section" style="background: var(--white); padding: 60px 20px; margin: 0; max-width: none;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 class="section-title">媽咪精選好物</h2>
+      <p style="text-align: center; color: var(--text-light); margin-bottom: 30px;">嚴選好物，讓生活更輕鬆</p>
+      <div style="text-align: center;">
+        <a href="/shop/" class="read-more">趕快來看看</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 最新消息 Section -->
+  <section class="section">
+    <h2 class="section-title">最新消息</h2>
+    <div class="posts-grid">
+      {latestPosts.map(post => (
+        <a href={`/posts/${post.slug}/`} class="post-card">
+          <div class="post-card-image">
+            {post.data.image && <img src={post.data.image} alt={post.data.title}>}
+            <span class="post-card-category">{post.data.category}</span>
+          </div>
+          <div class="post-card-content">
+            <h3 class="post-card-title">{post.data.title}</h3>
+            <p class="post-card-excerpt">{post.data.description}</p>
+            <p class="post-card-meta">{post.data.publishDate}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="/blog/" class="read-more">查看更多文章</a>
+    </div>
+  </section>
+  
+  <!-- 關於我們 Section -->
+  <section class="about-section">
+    <div class="about-content">
+      <img src="https://mommystartup.com/wp-content/uploads/2025/12/freepik__candid-i-with-natural-textures-and-highly-realisti__74477-1024x584.png" 
+           alt="關於我們" 
+           class="about-image">
+      <h2 class="section-title">把時間留給愛，是我們做這些事的原因</h2>
+      <p class="about-text">
+        我們是一群在生活與工作之間前行的媽媽，<br>
+        懂得時間被切得很碎，也知道每一份心力都很珍貴。<br><br>
+        所以我們選擇把複雜的事情整理好，<br>
+        用更好的流程與工具，<br>
+        讓生活、分享與嘗試，不再那麼累。
+      </p>
+    </div>
+  </section>
+  
+  <!-- 生態系入口 Section -->
+  <section class="section">
+    <h2 class="section-title">生態系入口</h2>
+    <div class="ecosystem-grid">
+      {siteConfig.ecosystem.map(item => (
+        <div class="ecosystem-card">
+          <img src={item.logo} alt={item.name}>
+          <h3>{item.name}</h3>
+          <p>{item.description}</p>
+          <a href={item.url} target="_blank">了解更多</a>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @media (max-width: 768px) {
+    section div[style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

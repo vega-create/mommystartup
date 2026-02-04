@@ -1,0 +1,134 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// 取得相關文章
+const allPosts = await getCollection('posts');
+const relatedPosts = allPosts
+  .filter(p => p.data.category === post.data.category && p.slug !== post.slug)
+  .slice(0, 3);
+---
+
+<Layout 
+  title={post.data.title} 
+  description={post.data.description}
+  image={post.data.image}
+>
+  <article class="article">
+    <header class="article-header">
+      <a href={`/category/${post.data.category}/`} class="article-category">
+        {post.data.category}
+      </a>
+      <h1 class="article-title">{post.data.title}</h1>
+      <p class="article-meta">
+        {post.data.author} · {post.data.publishDate}
+      </p>
+    </header>
+    
+    {post.data.image && (
+      <img src={post.data.image} alt={post.data.title} class="article-image">
+    )}
+    
+    <div class="article-content">
+      <Content />
+    </div>
+    
+    <!-- 分享按鈕 -->
+    <div class="share-buttons">
+      <span>分享文章：</span>
+      <a href={`https://www.facebook.com/sharer/sharer.php?u=${Astro.url}`} 
+         target="_blank" 
+         class="share-btn facebook">
+        Facebook
+      </a>
+      <a href={`https://line.me/R/msg/text/?${encodeURIComponent(post.data.title)}%20${Astro.url}`} 
+         target="_blank" 
+         class="share-btn line">
+        LINE
+      </a>
+    </div>
+    
+    <!-- 相關文章 -->
+    {relatedPosts.length > 0 && (
+      <section class="related-posts">
+        <h2 class="section-title">相關文章</h2>
+        <div class="posts-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
+          {relatedPosts.map(related => (
+            <a href={`/posts/${related.slug}/`} class="post-card">
+              <div class="post-card-image" style="padding-top: 60%;">
+                {related.data.image ? (
+                  <img src={related.data.image} alt={related.data.title}>
+                ) : (
+                  <div style="background: linear-gradient(135deg, var(--primary-light), var(--primary)); position: absolute; inset: 0;"></div>
+                )}
+              </div>
+              <div class="post-card-content">
+                <h3 class="post-card-title" style="font-size: 16px;">{related.data.title}</h3>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .share-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--primary-light);
+  }
+  
+  .share-buttons span {
+    color: var(--text-light);
+    font-size: 14px;
+  }
+  
+  .share-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+  }
+  
+  .share-btn.facebook {
+    background: #1877F2;
+  }
+  
+  .share-btn.line {
+    background: #06C755;
+  }
+  
+  .share-btn:hover {
+    color: white;
+    opacity: 0.9;
+  }
+  
+  .related-posts {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--primary-light);
+  }
+  
+  .related-posts .section-title {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+</style>

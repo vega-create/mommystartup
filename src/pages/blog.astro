@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// 取得所有文章
+const allPosts = await getCollection('posts');
+const posts = allPosts.sort((a, b) => 
+  new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+);
+
+// 取得所有分類
+const categories = ['行銷', '團購', '育兒'];
+---
+
+<Layout title="部落格" description="媽咪小編的部落格，分享團購、行銷、育兒的實用知識。">
+  <section class="section">
+    <h1 class="section-title">部落格</h1>
+    
+    <!-- 分類篩選 -->
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 40px;">
+      <a href="/blog/" class="category-tag active">全部</a>
+      {categories.map(cat => (
+        <a href={`/category/${cat}/`} class="category-tag">{cat}</a>
+      ))}
+    </div>
+    
+    <!-- 文章列表 -->
+    <div class="posts-grid">
+      {posts.map(post => (
+        <a href={`/posts/${post.slug}/`} class="post-card">
+          <div class="post-card-image">
+            {post.data.image ? (
+              <img src={post.data.image} alt={post.data.title}>
+            ) : (
+              <div style="background: linear-gradient(135deg, var(--primary-light), var(--primary)); height: 100%;"></div>
+            )}
+            <span class="post-card-category">{post.data.category}</span>
+          </div>
+          <div class="post-card-content">
+            <h3 class="post-card-title">{post.data.title}</h3>
+            <p class="post-card-excerpt">{post.data.description}</p>
+            <p class="post-card-meta">{post.data.publishDate}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .category-tag {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+    background: var(--white);
+    color: var(--text);
+    font-size: 14px;
+    border: 1px solid var(--primary-light);
+    transition: all 0.3s ease;
+  }
+  
+  .category-tag:hover,
+  .category-tag.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border-color: transparent;
+  }
+</style>
