@@ -291,3 +291,22 @@ const relatedPosts = allPosts
     padding-left: 20px;
   }
 </style>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const nums = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+    const content = document.querySelector('.article-content');
+    if (!content) return;
+    let h2Count = 0;
+    let h3Count = 0;
+    content.querySelectorAll('h2, h3').forEach(el => {
+      if (el.tagName === 'H2') {
+        h2Count++;
+        h3Count = 0;
+        el.textContent = (nums[h2Count - 1] || h2Count) + '、' + el.textContent;
+      } else {
+        h3Count++;
+        el.textContent = h3Count + '. ' + el.textContent;
+      }
+    });
+  });
+</script>
