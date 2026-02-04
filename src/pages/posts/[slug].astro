@@ -43,11 +43,29 @@ const relatedPosts = allPosts
       <nav class="toc">
         <p class="toc-title">📑 目錄</p>
         <ul>
-          {headings.filter(h => h.depth <= 3).map(h => (
-            <li class={`toc-h${h.depth}`}>
-              <a href={`#${h.slug}`}>{h.text}</a>
-            </li>
-          ))}
+          {(() => {
+            const nums = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+            let h2Count = 0;
+            let h3Count = 0;
+            return headings.filter(h => h.depth <= 3).map(h => {
+              if (h.depth === 2) {
+                h2Count++;
+                h3Count = 0;
+                return (
+                  <li class="toc-h2">
+                    <a href={`#${h.slug}`}>{nums[h2Count - 1] || h2Count}、{h.text}</a>
+                  </li>
+                );
+              } else {
+                h3Count++;
+                return (
+                  <li class="toc-h3">
+                    <a href={`#${h.slug}`}>{h3Count}. {h.text}</a>
+                  </li>
+                );
+              }
+            });
+          })()}
         </ul>
       </nav>
     )}
