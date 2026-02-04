@@ -12,6 +12,19 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
+const nums = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+let h2Count = 0;
+let h3Count = 0;
+const tocItems = headings.filter(h => h.depth <= 3).map(h => {
+  if (h.depth === 2) {
+    h2Count++;
+    h3Count = 0;
+    return { ...h, label: `${nums[h2Count - 1] || h2Count}、${h.text}` };
+  } else {
+    h3Count++;
+    return { ...h, label: `${h3Count}. ${h.text}` };
+  }
+});
 
 // 取得相關文章
 const allPosts = await getCollection('posts');
@@ -39,33 +52,15 @@ const relatedPosts = allPosts
     {post.data.image && (
       <img src={post.data.image} alt={post.data.title} class="article-image">
     )}
-    {headings.length > 0 && (
+    {tocItems.length > 0 && (
       <nav class="toc">
         <p class="toc-title">📑 目錄</p>
         <ul>
-          {(() => {
-            const nums = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
-            let h2Count = 0;
-            let h3Count = 0;
-            return headings.filter(h => h.depth <= 3).map(h => {
-              if (h.depth === 2) {
-                h2Count++;
-                h3Count = 0;
-                return (
-                  <li class="toc-h2">
-                    <a href={`#${h.slug}`}>{nums[h2Count - 1] || h2Count}、{h.text}</a>
-                  </li>
-                );
-              } else {
-                h3Count++;
-                return (
-                  <li class="toc-h3">
-                    <a href={`#${h.slug}`}>{h3Count}. {h.text}</a>
-                  </li>
-                );
-              }
-            });
-          })()}
+          {tocItems.map(h => (
+            <li class={`toc-h${h.depth}`}>
+              <a href={`#${h.slug}`}>{h.label}</a>
+            </li>
+          ))}
         </ul>
       </nav>
     )}
