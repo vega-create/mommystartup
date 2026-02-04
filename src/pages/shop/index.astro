@@ -1,64 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { siteConfig } from '../../site.config';
-
-// 精選好物（之後可接 Supabase 動態管理）
-const products = [
-  {
-    name: '兒童護眼檯燈',
-    description: '德國認證無藍光，三段色溫調節，保護孩子視力的最佳選擇。',
-    image: 'https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&w=600',
-    price: 'NT$ 1,280',
-    originalPrice: 'NT$ 1,680',
-    tag: '熱銷',
-    link: '#'
-  },
-  {
-    name: '有機寶寶副食品組',
-    description: '100% 台灣有機食材，營養師調配，6個月以上寶寶適用。',
-    image: 'https://images.pexels.com/photos/3662630/pexels-photo-3662630.jpeg?auto=compress&cs=tinysrgb&w=600',
-    price: 'NT$ 890',
-    originalPrice: 'NT$ 1,200',
-    tag: '新品',
-    link: '#'
-  },
-  {
-    name: '媽媽紓壓精油組',
-    description: '薰衣草 × 甜橙 × 尤加利，睡前放鬆必備，附擴香石。',
-    image: 'https://images.pexels.com/photos/3059609/pexels-photo-3059609.jpeg?auto=compress&cs=tinysrgb&w=600',
-    price: 'NT$ 680',
-    originalPrice: 'NT$ 980',
-    tag: '限時',
-    link: '#'
-  },
-  {
-    name: '親子共讀繪本套組',
-    description: '精選 10 本得獎繪本，培養閱讀習慣從小開始。',
-    image: 'https://images.pexels.com/photos/256431/pexels-photo-256431.jpeg?auto=compress&cs=tinysrgb&w=600',
-    price: 'NT$ 1,580',
-    originalPrice: 'NT$ 2,200',
-    tag: '推薦',
-    link: '#'
-  },
-  {
-    name: '輕量嬰兒推車',
-    description: '單手秒收，僅 5.8kg，登機尺寸，旅行媽咪首選。',
-    image: 'https://images.pexels.com/photos/3933250/pexels-photo-3933250.jpeg?auto=compress&cs=tinysrgb&w=600',
-    price: 'NT$ 4,980',
-    originalPrice: 'NT$ 6,800',
-    tag: '熱銷',
-    link: '#'
-  },
-  {
-    name: '兒童益智積木組',
-    description: '安全無毒材質，200片大包裝，激發創造力與空間感。',
-    image: 'https://images.pexels.com/photos/298825/pexels-photo-298825.jpeg?auto=compress&cs=tinysrgb&w=600',
-    price: 'NT$ 750',
-    originalPrice: 'NT$ 1,100',
-    tag: '新品',
-    link: '#'
-  }
-];
 ---
 
 <Layout title="媽咪精選好物" description="嚴選好物，讓媽媽生活更輕鬆">
@@ -69,24 +10,13 @@ const products = [
       讓生活多一點輕鬆，少一點煩惱 💕
     </p>
     
-    <div class="shop-grid">
-      {products.map(product => (
-        <div class="shop-card">
-          <div class="shop-card-image">
-            <img src={product.image} alt={product.name} loading="lazy">
-            <span class="shop-card-tag">{product.tag}</span>
-          </div>
-          <div class="shop-card-content">
-            <h3 class="shop-card-title">{product.name}</h3>
-            <p class="shop-card-desc">{product.description}</p>
-            <div class="shop-card-price">
-              <span class="shop-price-current">{product.price}</span>
-              <span class="shop-price-original">{product.originalPrice}</span>
-            </div>
-            <a href={product.link} class="shop-card-btn">了解更多</a>
-          </div>
-        </div>
-      ))}
+    <div class="shop-grid" id="shopGrid">
+      <div class="shop-loading">載入中...</div>
+    </div>
+    
+    <div id="shopEmpty" style="display:none; text-align:center; padding:60px 20px; color:var(--text-light);">
+      <p style="font-size:48px; margin-bottom:16px;">🛍️</p>
+      <p>精選好物即將上架，敬請期待！</p>
     </div>
   </section>
 </Layout>
@@ -99,7 +29,12 @@ const products = [
     max-width: 1200px;
     margin: 0 auto;
   }
-  
+  .shop-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    color: var(--text-light);
+  }
   .shop-card {
     background: white;
     border-radius: 16px;
@@ -107,29 +42,33 @@ const products = [
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     transition: transform 0.3s, box-shadow 0.3s;
   }
-  
   .shop-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   }
-  
   .shop-card-image {
     position: relative;
     aspect-ratio: 4/3;
     overflow: hidden;
   }
-  
   .shop-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s;
   }
-  
   .shop-card:hover .shop-card-image img {
     transform: scale(1.05);
   }
-  
+  .shop-card-image .no-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+  }
   .shop-card-tag {
     position: absolute;
     top: 12px;
@@ -141,44 +80,41 @@ const products = [
     font-size: 12px;
     font-weight: 500;
   }
-  
   .shop-card-content {
     padding: 20px;
   }
-  
   .shop-card-title {
     font-size: 18px;
     font-weight: 700;
     color: var(--text);
     margin-bottom: 8px;
   }
-  
   .shop-card-desc {
     font-size: 14px;
     color: var(--text-light);
     line-height: 1.6;
     margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
-  
   .shop-card-price {
     margin-bottom: 16px;
     display: flex;
     align-items: center;
     gap: 10px;
   }
-  
   .shop-price-current {
     font-size: 20px;
     font-weight: 700;
     color: var(--primary-dark);
   }
-  
   .shop-price-original {
     font-size: 14px;
     color: #aaa;
     text-decoration: line-through;
   }
-  
   .shop-card-btn {
     display: block;
     text-align: center;
@@ -191,21 +127,62 @@ const products = [
     text-decoration: none;
     transition: background 0.2s;
   }
-  
   .shop-card-btn:hover {
     background: var(--primary-dark);
   }
-  
   @media (max-width: 768px) {
-    .shop-grid {
-      grid-template-columns: 1fr;
-      padding: 0 16px;
-    }
+    .shop-grid { grid-template-columns: 1fr; padding: 0 16px; }
   }
-  
   @media (min-width: 769px) and (max-width: 1024px) {
-    .shop-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .shop-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
+
+<script is:inline>
+  const SUPABASE_URL = 'https://lexcvcinmphkmavgswgn.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxleGN2Y2lubXBoa21hdmdzd2duIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjcxMDEwODksImV4cCI6MjA4MjY3NzA4OX0.Ur2XPKbWU0Bfm87otq4uM_33cyWRi267nBbAEZtjcis';
+  const SITE_ID = '156d8963-e892-4e62-a19d-8a3727814858';
+  
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+  script.onload = async () => {
+    const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    
+    const { data, error } = await sb
+      .from('products')
+      .select('*')
+      .eq('site_id', SITE_ID)
+      .eq('is_active', true)
+      .order('sort_order', { ascending: true });
+    
+    const grid = document.getElementById('shopGrid');
+    const empty = document.getElementById('shopEmpty');
+    
+    if (error || !data || data.length === 0) {
+      grid.style.display = 'none';
+      empty.style.display = '';
+      return;
+    }
+    
+    grid.innerHTML = data.map(p => `
+      <div class="shop-card">
+        <div class="shop-card-image">
+          ${p.image 
+            ? `<img src="${p.image}" alt="${p.name}" loading="lazy">` 
+            : '<div class="no-image">🛍️</div>'}
+          ${p.tag ? `<span class="shop-card-tag">${p.tag}</span>` : ''}
+        </div>
+        <div class="shop-card-content">
+          <h3 class="shop-card-title">${p.name}</h3>
+          <p class="shop-card-desc">${p.description || ''}</p>
+          <div class="shop-card-price">
+            ${p.price ? `<span class="shop-price-current">NT$ ${p.price.toLocaleString()}</span>` : ''}
+            ${p.original_price ? `<span class="shop-price-original">NT$ ${p.original_price.toLocaleString()}</span>` : ''}
+          </div>
+          <a href="${p.link || '#'}" class="shop-card-btn" ${p.link && p.link !== '#' ? 'target="_blank"' : ''}>了解更多</a>
+        </div>
+      </div>
+    `).join('');
+  };
+  document.head.appendChild(script);
+</script>

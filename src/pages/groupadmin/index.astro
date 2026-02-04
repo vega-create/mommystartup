@@ -1,0 +1,367 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="商品管理後台" description="媽咪精選好物管理">
+  <div id="admin-app">
+    <!-- 登入區 -->
+    <div id="login-section" class="admin-login">
+      <div class="login-card">
+        <h2>🔐 商品管理後台</h2>
+        <p class="login-subtitle">請使用管理員帳號登入</p>
+        <form id="loginForm">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="loginEmail" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>密碼</label>
+            <input type="password" id="loginPassword" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn-primary" id="loginBtn">登入</button>
+          <p id="loginError" class="error-msg"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- 管理區 -->
+    <div id="admin-section" class="admin-panel" style="display:none;">
+      <div class="admin-header">
+        <h2>📦 媽咪精選好物管理</h2>
+        <div class="admin-actions">
+          <button class="btn-primary" onclick="showAddForm()">＋ 新增商品</button>
+          <button class="btn-outline" onclick="logout()">登出</button>
+        </div>
+      </div>
+
+      <div class="products-table-wrap">
+        <table class="products-table" id="productsTable">
+          <thead>
+            <tr>
+              <th>圖片</th>
+              <th>商品名稱</th>
+              <th>價格</th>
+              <th>標籤</th>
+              <th>狀態</th>
+              <th>排序</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="productsBody">
+            <tr><td colspan="7" class="loading">載入中...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Modal -->
+      <div id="productModal" class="modal" style="display:none;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="modalTitle">新增商品</h3>
+            <button class="modal-close" onclick="closeModal()">✕</button>
+          </div>
+          <form id="productForm">
+            <input type="hidden" id="productId">
+            <div class="form-row">
+              <div class="form-group">
+                <label>商品名稱 *</label>
+                <input type="text" id="productName" required placeholder="例：兒童護眼檯燈">
+              </div>
+              <div class="form-group">
+                <label>標籤</label>
+                <select id="productTag">
+                  <option value="">無</option>
+                  <option value="熱銷">熱銷</option>
+                  <option value="新品">新品</option>
+                  <option value="限時">限時</option>
+                  <option value="推薦">推薦</option>
+                  <option value="獨家">獨家</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>商品描述</label>
+              <textarea id="productDesc" rows="3" placeholder="簡短描述商品特色..."></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>售價（NT$）*</label>
+                <input type="number" id="productPrice" required placeholder="1280">
+              </div>
+              <div class="form-group">
+                <label>原價（NT$）</label>
+                <input type="number" id="productOriginalPrice" placeholder="1680">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>商品圖片 URL</label>
+              <input type="url" id="productImage" placeholder="https://...">
+              <div id="imagePreview" class="image-preview"></div>
+            </div>
+            <div class="form-group">
+              <label>購買連結</label>
+              <input type="url" id="productLink" placeholder="https://...">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>分類</label>
+                <input type="text" id="productCategory" value="精選好物" placeholder="精選好物">
+              </div>
+              <div class="form-group">
+                <label>排序（數字越小越前面）</label>
+                <input type="number" id="productSort" value="0" placeholder="0">
+              </div>
+            </div>
+            <div class="form-group checkbox-group">
+              <label>
+                <input type="checkbox" id="productActive" checked>
+                上架中
+              </label>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn-outline" onclick="closeModal()">取消</button>
+              <button type="submit" class="btn-primary" id="saveBtn">儲存</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style is:global>
+  .admin-login { display: flex; justify-content: center; align-items: center; min-height: 50vh; padding: 40px 20px; }
+  .login-card { background: white; border-radius: 16px; padding: 40px; width: 100%; max-width: 400px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center; }
+  .login-card h2 { font-size: 24px; margin-bottom: 8px; color: var(--text); }
+  .login-subtitle { color: var(--text-light); font-size: 14px; margin-bottom: 30px; }
+  .form-group { margin-bottom: 16px; text-align: left; }
+  .form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Noto Sans TC', sans-serif; transition: border-color 0.2s; box-sizing: border-box; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--primary); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .checkbox-group label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
+  .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--primary); }
+  .error-msg { color: #e74c3c; font-size: 13px; margin-top: 10px; min-height: 20px; }
+  .image-preview { margin-top: 8px; }
+  .image-preview img { max-width: 200px; border-radius: 8px; border: 1px solid #eee; }
+  .btn-primary { width: 100%; padding: 12px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: 'Noto Sans TC', sans-serif; transition: opacity 0.2s; }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-outline { padding: 8px 20px; background: white; color: var(--text); border: 1px solid #ddd; border-radius: 8px; font-size: 14px; cursor: pointer; font-family: 'Noto Sans TC', sans-serif; transition: all 0.2s; }
+  .btn-outline:hover { border-color: var(--primary); color: var(--primary-dark); }
+  .btn-sm { padding: 6px 12px; font-size: 12px; border-radius: 6px; border: none; cursor: pointer; font-family: 'Noto Sans TC', sans-serif; }
+  .btn-edit { background: #f0f0f0; color: var(--text); }
+  .btn-edit:hover { background: #e0e0e0; }
+  .btn-delete { background: #fee; color: #e74c3c; }
+  .btn-delete:hover { background: #fdd; }
+  .btn-toggle { background: #f0f9f0; color: #27ae60; }
+  .btn-toggle.off { background: #fff3e0; color: #f39c12; }
+  .admin-panel { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+  .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 16px; }
+  .admin-header h2 { font-size: 22px; color: var(--text); }
+  .admin-actions { display: flex; gap: 10px; }
+  .admin-actions .btn-primary { width: auto; padding: 10px 20px; }
+  .products-table-wrap { overflow-x: auto; background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .products-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .products-table th { background: #faf8f6; padding: 14px 16px; text-align: left; font-weight: 600; color: var(--text); border-bottom: 1px solid #eee; white-space: nowrap; }
+  .products-table td { padding: 12px 16px; border-bottom: 1px solid #f5f5f5; vertical-align: middle; }
+  .products-table tr:hover td { background: #fdfbf9; }
+  .products-table .thumb { width: 80px; height: 60px; max-width: 80px; object-fit: cover; border-radius: 6px; border: 1px solid #eee; display: block; }
+  .products-table .no-img { width: 80px; height: 60px; background: #f5f5f5; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .products-table td:first-child { width: 100px; }
+  .tag-badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; background: var(--primary-light); color: var(--primary-dark); }
+  .status-active { color: #27ae60; font-weight: 500; }
+  .status-inactive { color: #999; }
+  .loading { text-align: center; color: var(--text-light); padding: 40px; }
+  .action-btns { display: flex; gap: 6px; }
+  .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 1000; display: flex; justify-content: center; align-items: flex-start; padding: 40px 20px; overflow-y: auto; }
+  .modal-content { background: white; border-radius: 16px; width: 100%; max-width: 600px; padding: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+  .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+  .modal-header h3 { font-size: 20px; color: var(--text); }
+  .modal-close { background: none; border: none; font-size: 20px; cursor: pointer; color: #999; padding: 4px 8px; }
+  .modal-close:hover { color: var(--text); }
+  .modal-footer { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid #f0f0f0; }
+  .modal-footer .btn-primary { width: auto; padding: 10px 30px; }
+  @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } .admin-header { flex-direction: column; align-items: flex-start; } }
+</style>
+
+<script is:inline>
+  (function() {
+    var SB_URL = 'https://lexcvcinmphkmavgswgn.supabase.co';
+    var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxleGN2Y2lubXBoa21hdmdzd2duIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjcxMDEwODksImV4cCI6MjA4MjY3NzA4OX0.Ur2XPKbWU0Bfm87otq4uM_33cyWRi267nBbAEZtjcis';
+    var SITE_ID = '156d8963-e892-4e62-a19d-8a3727814858';
+    var sb = null;
+    var currentUser = null;
+
+    var script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+    script.onload = function() {
+      sb = window.supabase.createClient(SB_URL, SB_KEY);
+      checkAuth();
+    };
+    document.head.appendChild(script);
+
+    async function checkAuth() {
+      var result = await sb.auth.getSession();
+      if (result.data.session) {
+        currentUser = result.data.session.user;
+        showAdmin();
+      }
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var email = document.getElementById('loginEmail').value;
+      var password = document.getElementById('loginPassword').value;
+      var btn = document.getElementById('loginBtn');
+      var error = document.getElementById('loginError');
+      btn.disabled = true;
+      btn.textContent = '登入中...';
+      error.textContent = '';
+      var result = await sb.auth.signInWithPassword({ email: email, password: password });
+      if (result.error) {
+        error.textContent = '登入失敗：' + result.error.message;
+        btn.disabled = false;
+        btn.textContent = '登入';
+        return;
+      }
+      currentUser = result.data.user;
+      showAdmin();
+    });
+
+    window.logout = async function() {
+      await sb.auth.signOut();
+      currentUser = null;
+      document.getElementById('login-section').style.display = '';
+      document.getElementById('admin-section').style.display = 'none';
+    };
+
+    function showAdmin() {
+      document.getElementById('login-section').style.display = 'none';
+      document.getElementById('admin-section').style.display = '';
+      loadProducts();
+    }
+
+    async function loadProducts() {
+      var tbody = document.getElementById('productsBody');
+      tbody.innerHTML = '<tr><td colspan="7" class="loading">載入中...</td></tr>';
+      var result = await sb.from('products').select('*').eq('site_id', SITE_ID).order('sort_order', { ascending: true }).order('created_at', { ascending: false });
+      if (result.error || !result.data || result.data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="loading">尚無商品，點擊上方「新增商品」開始吧！</td></tr>';
+        return;
+      }
+      tbody.innerHTML = result.data.map(function(p) {
+        return '<tr>' +
+          '<td>' + (p.image ? '<img src="' + p.image + '" class="thumb" alt="' + p.name + '">' : '<div class="no-img">📦</div>') + '</td>' +
+          '<td><strong>' + p.name + '</strong><br><small style="color:#999">' + ((p.description || '').substring(0, 30)) + '...</small></td>' +
+          '<td><strong style="color:var(--primary-dark)">NT$ ' + (p.price || '-') + '</strong>' + (p.original_price ? '<br><small style="color:#aaa;text-decoration:line-through">NT$ ' + p.original_price + '</small>' : '') + '</td>' +
+          '<td>' + (p.tag ? '<span class="tag-badge">' + p.tag + '</span>' : '-') + '</td>' +
+          '<td><span class="' + (p.is_active ? 'status-active' : 'status-inactive') + '">' + (p.is_active ? '✅ 上架' : '⏸️ 下架') + '</span></td>' +
+          '<td>' + (p.sort_order || 0) + '</td>' +
+          '<td><div class="action-btns">' +
+            '<button class="btn-sm btn-toggle ' + (p.is_active ? '' : 'off') + '" onclick="toggleProduct(\'' + p.id + '\',' + (!p.is_active) + ')">' + (p.is_active ? '下架' : '上架') + '</button>' +
+            '<button class="btn-sm btn-edit" onclick="editProduct(\'' + p.id + '\')">編輯</button>' +
+            '<button class="btn-sm btn-delete" onclick="deleteProduct(\'' + p.id + '\',\'' + p.name.replace(/'/g, "\\'") + '\')">刪除</button>' +
+          '</div></td>' +
+        '</tr>';
+      }).join('');
+    }
+
+    window.showAddForm = function() {
+      document.getElementById('modalTitle').textContent = '新增商品';
+      document.getElementById('productForm').reset();
+      document.getElementById('productId').value = '';
+      document.getElementById('productActive').checked = true;
+      document.getElementById('productCategory').value = '精選好物';
+      document.getElementById('productSort').value = '0';
+      document.getElementById('imagePreview').innerHTML = '';
+      document.getElementById('productModal').style.display = '';
+    };
+
+    window.editProduct = async function(id) {
+      var result = await sb.from('products').select('*').eq('id', id).single();
+      if (result.error || !result.data) return alert('載入失敗');
+      var d = result.data;
+      document.getElementById('modalTitle').textContent = '編輯商品';
+      document.getElementById('productId').value = d.id;
+      document.getElementById('productName').value = d.name || '';
+      document.getElementById('productDesc').value = d.description || '';
+      document.getElementById('productPrice').value = d.price || '';
+      document.getElementById('productOriginalPrice').value = d.original_price || '';
+      document.getElementById('productImage').value = d.image || '';
+      document.getElementById('productLink').value = d.link || '';
+      document.getElementById('productTag').value = d.tag || '';
+      document.getElementById('productCategory').value = d.category || '精選好物';
+      document.getElementById('productSort').value = d.sort_order || 0;
+      document.getElementById('productActive').checked = d.is_active;
+      var preview = document.getElementById('imagePreview');
+      preview.innerHTML = d.image ? '<img src="' + d.image + '" alt="預覽">' : '';
+      document.getElementById('productModal').style.display = '';
+    };
+
+    document.getElementById('productForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('saveBtn');
+      btn.disabled = true;
+      btn.textContent = '儲存中...';
+      var id = document.getElementById('productId').value;
+      var payload = {
+        site_id: SITE_ID,
+        name: document.getElementById('productName').value,
+        description: document.getElementById('productDesc').value,
+        price: parseInt(document.getElementById('productPrice').value) || null,
+        original_price: parseInt(document.getElementById('productOriginalPrice').value) || null,
+        image: document.getElementById('productImage').value,
+        link: document.getElementById('productLink').value,
+        tag: document.getElementById('productTag').value || null,
+        category: document.getElementById('productCategory').value || '精選好物',
+        sort_order: parseInt(document.getElementById('productSort').value) || 0,
+        is_active: document.getElementById('productActive').checked,
+        updated_at: new Date().toISOString()
+      };
+      var result;
+      if (id) {
+        result = await sb.from('products').update(payload).eq('id', id);
+      } else {
+        result = await sb.from('products').insert(payload);
+      }
+      if (result.error) {
+        alert('儲存失敗：' + result.error.message);
+      } else {
+        closeModal();
+        loadProducts();
+      }
+      btn.disabled = false;
+      btn.textContent = '儲存';
+    });
+
+    window.toggleProduct = async function(id, active) {
+      await sb.from('products').update({ is_active: active, updated_at: new Date().toISOString() }).eq('id', id);
+      loadProducts();
+    };
+
+    window.deleteProduct = async function(id, name) {
+      if (!confirm('確定要刪除「' + name + '」嗎？')) return;
+      await sb.from('products').delete().eq('id', id);
+      loadProducts();
+    };
+
+    window.closeModal = function() {
+      document.getElementById('productModal').style.display = 'none';
+    };
+
+    document.getElementById('productImage').addEventListener('input', function(e) {
+      var url = e.target.value;
+      var preview = document.getElementById('imagePreview');
+      if (url && url.startsWith('http')) {
+        preview.innerHTML = '<img src="' + url + '" alt="預覽" onerror="this.style.display=\'none\'">';
+      } else {
+        preview.innerHTML = '';
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  })();
+</script>
