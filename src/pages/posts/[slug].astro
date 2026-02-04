@@ -32,7 +32,7 @@ const relatedPosts = allPosts
       </a>
       <h1 class="article-title">{post.data.title}</h1>
       <p class="article-meta">
-        {post.data.author} · {post.data.publishDate}
+        {post.data.author} · {new Date(post.data.publishDate).toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' })}
       </p>
     </header>
     
@@ -130,5 +130,33 @@ const relatedPosts = allPosts
   .related-posts .section-title {
     font-size: 22px;
     margin-bottom: 25px;
+  }
+  .article-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  }
+  .article-content :global(th) {
+    background: var(--primary-light);
+    color: var(--text);
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--primary);
+  }
+  .article-content :global(td) {
+    padding: 10px 16px;
+    border-bottom: 1px solid #f0ece8;
+    color: var(--text);
+  }
+  .article-content :global(tr:hover td) {
+    background: #fdfbf9;
+  }
+  .article-content :global(tr:last-child td) {
+    border-bottom: none;
   }
 </style>
