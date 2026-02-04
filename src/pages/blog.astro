@@ -39,7 +39,7 @@ const categories = ['行銷', '團購', '育兒'];
           <div class="post-card-content">
             <h3 class="post-card-title">{post.data.title}</h3>
             <p class="post-card-excerpt">{post.data.description}</p>
-            <p class="post-card-meta">{post.data.publishDate}</p>
+            <p class="post-card-meta">{new Date(post.data.publishDate).toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
           </div>
         </a>
       ))}
