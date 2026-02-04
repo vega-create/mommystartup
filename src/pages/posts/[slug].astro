@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 
 // 取得相關文章
 const allPosts = await getCollection('posts');
@@ -39,7 +39,18 @@ const relatedPosts = allPosts
     {post.data.image && (
       <img src={post.data.image} alt={post.data.title} class="article-image">
     )}
-    
+    {headings.length > 0 && (
+      <nav class="toc">
+        <p class="toc-title">📑 目錄</p>
+        <ul>
+          {headings.filter(h => h.depth <= 3).map(h => (
+            <li class={`toc-h${h.depth}`}>
+              <a href={`#${h.slug}`}>{h.text}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
     <div class="article-content">
       <Content />
     </div>
@@ -232,5 +243,38 @@ const relatedPosts = allPosts
   }
   .article-content :global(tr:last-child td) {
     border-bottom: none;
+  }
+  .toc {
+    background: #faf8f6;
+    border: 1px solid #f0ece8;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 30px 0;
+  }
+  .toc-title {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .toc li {
+    margin: 6px 0;
+  }
+  .toc li a {
+    color: var(--text-light);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .toc li a:hover {
+    color: var(--primary-dark);
+  }
+  .toc .toc-h3 {
+    padding-left: 20px;
   }
 </style>
