@@ -5,7 +5,7 @@ publishDate: 2024-11-25
 category: "行銷"
 tags: ['SEO', '兼職', '媽咪', '心法', '斜槓']
 image: "https://mommystartup.com/wp-content/uploads/2024/11/thought-catalog-505eectW54k-unsplash.jpg"
-author: "媽咪小編"
+author: "作者"
 ---
 
 > 在進行協槓的路上，許多媽媽會擔心自己的文字是否能吸引人，尤其是在寫SEO文章時，如何兼顧搜尋引擎與讀者的需求，更是讓人頭疼。但其實，寫出讓人願意停下來看的文章，並不需要太複雜的技巧！這篇文章將分享幾個簡單實用的撰寫方法，幫助你用真誠的內容打動讀者，同時讓搜尋引擎喜歡你的文章。

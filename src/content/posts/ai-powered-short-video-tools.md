@@ -5,7 +5,7 @@ publishDate: 2025-05-21
 category: "行銷"
 tags: ['AI', '短影音', '社群行銷']
 image: "https://mommystartup.com/wp-content/uploads/2025/05/05月圖片.png"
-author: "媽咪小編"
+author: "作者"
 ---
 
 **前言：短影音行銷的黃金時代**

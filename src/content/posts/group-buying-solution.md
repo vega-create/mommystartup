@@ -5,7 +5,7 @@ publishDate: 2024-11-29
 category: "團購"
 tags: ['兼職', '團購', '斜槓', '新手團媽']
 image: "https://mommystartup.com/wp-content/uploads/2024/11/2.png"
-author: "媽咪小編"
+author: "作者"
 ---
 
 > 前言：**團購新手最需要注意什麼？**

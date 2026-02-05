@@ -5,7 +5,7 @@ publishDate: 2024-10-28
 category: "團購"
 tags: ['兼職', '團購', '團購入門', '媽咪', '心法', '斜槓']
 image: "https://mommystartup.com/wp-content/uploads/2024/10/pexels-hillaryfox-1595387.jpg"
-author: "媽咪小編"
+author: "作者"
 ---
 
 > 如果你是一位全職媽媽，可能常常會覺得生活被育兒工作塞得滿滿的，想賺點外快卻不知道從哪裡開始？別擔心，今天要來分享一個適合小白媽咪們的斜槓入門方法——**團購**！

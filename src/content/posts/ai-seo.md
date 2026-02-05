@@ -5,7 +5,7 @@ publishDate: 2025-04-16
 category: "行銷"
 tags: ['AI', 'SEO', '社群行銷']
 image: "https://mommystartup.com/wp-content/uploads/2025/04/1.png"
-author: "媽咪小編"
+author: "作者"
 ---
 
 ## **前言**

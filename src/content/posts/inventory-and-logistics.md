@@ -5,7 +5,7 @@ publishDate: 2024-10-07
 category: "團購"
 tags: ['兼職', '團購', '媽咪', '斜槓']
 image: "https://mommystartup.com/wp-content/uploads/2024/10/john-schnobrich-FlPc9_VocJ4-unsplash.jpg"
-author: "媽咪小編"
+author: "作者"
 ---
 
 > 身為團購媽咪，能順利管理庫存和物流是成功的關鍵，但別擔心，廠商通常會提供支援。這篇文章教你如何利用廠商的幫助，輕鬆完成這部分工作，並將團購作為你的斜槓事業。

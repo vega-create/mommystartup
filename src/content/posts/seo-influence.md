@@ -5,7 +5,7 @@ publishDate: 2024-09-20
 category: "行銷"
 tags: ['SEO', '兼職', '品牌影響力']
 image: "https://mommystartup.com/wp-content/uploads/2024/09/1-1.png"
-author: "媽咪小編"
+author: "作者"
 ---
 
 > 許多在家工作的斜槓媽媽們希望透過經營部落格或小型網路事業來建立自己的品牌影響力。然而，無論你的產品或服務多麼優秀，如果目標受眾看不到你，那麼你將很難擴大你的影響力。這時候，SEO（搜尋引擎優化，Search Engine Optimization）就成為了關鍵。SEO能幫助你的內容在搜尋引擎（如Google）中更容易被找到，進而提升品牌的曝光度與信任感。本文將介紹如何運用SEO來提升品牌影響力。

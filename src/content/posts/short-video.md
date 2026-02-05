@@ -5,7 +5,7 @@ publishDate: 2025-02-21
 category: "行銷"
 tags: ['個人品牌', '斜槓', '新手媽咪', '短影音行銷', '社群行銷']
 image: "https://mommystartup.com/wp-content/uploads/2025/02/2.png"
-author: "媽咪小編"
+author: "作者"
 ---
 
 > **前言**

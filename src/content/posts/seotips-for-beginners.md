@@ -5,7 +5,7 @@ publishDate: 2024-12-27
 category: "行銷"
 tags: ['SEO', '個人品牌', '斜槓', '新手seo', '社群行銷']
 image: "https://mommystartup.com/wp-content/uploads/2024/12/4.png"
-author: "媽咪小編"
+author: "作者"
 ---
 
 > 前言

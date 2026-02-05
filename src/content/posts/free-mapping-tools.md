@@ -5,7 +5,7 @@ publishDate: 2024-09-23
 category: "行銷"
 tags: ['SEO', '媽咪', '社群行銷', '製圖工具']
 image: "https://mommystartup.com/wp-content/uploads/2024/09/pexels-kseverin-1542252.jpg"
-author: "媽咪小編"
+author: "作者"
 ---
 
 > **在社群行銷的世界裡，圖片就是你的門面，尤其是在快速瀏覽的社群平台上，漂亮的圖片往往能在一瞬間吸引粉絲停下腳步。**對於忙碌的媽咪們來說，想要快速產出好看的圖片並不難，市面上有很多免費又方便的製圖工具，讓你即使沒學過設計，也能輕鬆上手。

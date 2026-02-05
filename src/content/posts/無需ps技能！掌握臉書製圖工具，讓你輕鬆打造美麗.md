@@ -9,7 +9,7 @@ publishDate: 2023-06-27
 category: "行銷"
 tags: []
 image: "https://soledad.pencidesign.net/soledad-craft-diy-blog2/wp-content/uploads/sites/68/2018/09/about-1.jpg"
-author: "媽咪小編"
+author: "作者"
 ---
 
 > 在現代社交媒體時代，Facebook已成為了每個人必備的平台之一。而在Facebook上，創造一個吸引人的封面照片也是至關重要的。但是，如果你不會使用Photoshop等專業圖像編輯工具，該怎麼辦呢？別擔心，現在有許多易於使用的Facebook製圖工具可以幫助你快速創建出美麗的封面照片。

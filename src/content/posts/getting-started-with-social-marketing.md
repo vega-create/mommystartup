@@ -5,7 +5,7 @@ publishDate: 2024-12-30
 category: "行銷"
 tags: ['個人品牌', '媽咪', '心法', '社群行銷']
 image: "https://mommystartup.com/wp-content/uploads/2024/12/pexels-olly-789822.jpg"
-author: "媽咪小編"
+author: "作者"
 ---
 
 ## 前言

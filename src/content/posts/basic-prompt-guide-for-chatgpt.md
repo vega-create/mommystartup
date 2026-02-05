@@ -5,7 +5,7 @@ publishDate: 2025-06-11
 category: "行銷"
 tags: ['chatgpt', '兼職', '媽咪', '斜槓', '社群行銷']
 image: "https://mommystartup.com/wp-content/uploads/2025/06/06月圖片.png"
-author: "媽咪小編"
+author: "作者"
 ---
 
 > 短影音當道，但很多小編或小老闆卻常說：**「我有產品，但不知道怎麼拍、怎麼寫！**」如果你也有一樣的煩惱，那麼這篇文章你一定要看！現在 AI 工具越來越好用，只要學會正確提問，用 ChatGPT 就能幫你寫出腳本、文案，甚至搭配貼文與 Hashtag，一條龍幫你搞定內容行銷！

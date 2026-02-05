@@ -5,7 +5,7 @@ publishDate: 2024-11-18
 category: "行銷"
 tags: ['SEO', '媽咪', '斜槓', '社群行銷']
 image: "https://mommystartup.com/wp-content/uploads/2024/11/kobu-agency-7okkFhxrxNw-unsplash.jpg"
-author: "媽咪小編"
+author: "作者"
 ---
 
 > 在育兒的旅程中，每位媽媽都有自己獨特的經驗和技巧。當這些經驗轉化為部落格或社群內容時，找到適合的關鍵字就成了關鍵！透過選擇精準的關鍵字，你的文章更容易被對的人看到。今天這篇文章將分享如何為自己的協槓主題找到小眾市場的關鍵字，讓內容更具吸引力。

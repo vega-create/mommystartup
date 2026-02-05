@@ -5,7 +5,7 @@ publishDate: 2025-07-16
 category: "行銷"
 tags: ['媽咪', '斜槓', '社群行銷', '行銷']
 image: "https://mommystartup.com/wp-content/uploads/2025/07/1.png"
-author: "媽咪小編"
+author: "作者"
 ---
 
 前言：

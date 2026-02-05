@@ -5,7 +5,7 @@ publishDate: 2024-12-09
 category: "行銷"
 tags: ['媽咪', '斜槓', '時間管理', '社群行銷']
 image: "https://mommystartup.com/wp-content/uploads/2024/12/icons8-team-dhZtNlvNE8M-unsplash.jpg"
-author: "媽咪小編"
+author: "作者"
 ---
 
 作為一名全職媽咪，時間總是顯得特別珍貴。在忙碌的育兒生活中，想經營社群卻常感到時間不夠？別擔心，本文將為你介紹高效的社群行銷時間管理術，讓你一週只需 2 小時，也能有效推動你的社群目標。
