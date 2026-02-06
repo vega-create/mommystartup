@@ -8,7 +8,7 @@ image: "https://mommystartup.com/wp-content/uploads/2024/08/corinne-kutz-tMI2_-r
 author: "作者"
 ---
 
-> 想要打造成功的斜槓事業，媽咪們一定要學會所謂的SEO（搜尋引擎優化）技巧，接下來為媽咪們簡單介紹這項工具。
+想要打造成功的斜槓事業，媽咪們一定要學會所謂的SEO（搜尋引擎優化）技巧，接下來為媽咪們簡單介紹這項工具。
 
 ## 一、什麼是SEO？
 

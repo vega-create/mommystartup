@@ -8,7 +8,7 @@ image: "https://mommystartup.com/wp-content/uploads/2024/08/pexels-ketut-subiyan
 author: "作者"
 ---
 
-> 在上一篇文章[打造成功斜槓，媽咪們必學的SEO技巧](https://mommystartup.com/seobasictips/)，我們介紹了SEO（搜尋引擎優化）的基礎知識，幫助你為斜槓副業打好基礎。這次，我們將進一步介紹一些簡單易懂的策略，讓你可以輕鬆提升副業的收入唷！
+在上一篇文章[打造成功斜槓，媽咪們必學的SEO技巧](https://mommystartup.com/seobasictips/)，我們介紹了SEO（搜尋引擎優化）的基礎知識，幫助你為斜槓副業打好基礎。這次，我們將進一步介紹一些簡單易懂的策略，讓你可以輕鬆提升副業的收入唷！
 
 ## 一、瞭解你的讀者：選擇適合的關鍵詞
 
