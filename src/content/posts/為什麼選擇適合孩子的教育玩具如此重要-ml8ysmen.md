@@ -35,7 +35,7 @@ author: "vegalin1029@gmail.com"
 - 遊戲與學習之間的關係。
 - 具體的玩具推薦與使用方法。
 
-## 一、教育玩具的重要性
+## 教育玩具的重要性
 
 ### 1. 遊戲與學習的關聯
 
@@ -60,7 +60,7 @@ author: "vegalin1029@gmail.com"
 
 
 ![Asian mother and her young son bonding while playing with educational toys at home.](https://images.pexels.com/photos/7780915/pexels-photo-7780915.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)
-## 二、選擇適合不同年齡段的玩具
+## 選擇適合不同年齡段的玩具
 
 ### 1. 幼兒期（0-3歲）
 
@@ -85,7 +85,7 @@ author: "vegalin1029@gmail.com"
 | 創意材料 | 彩色畫筆 | 激發藝術創造力 |
 | 木製建構玩具 | 積木 | 提升空間概念與手部精細動作 |
 
-## 三、玩具選擇的心理影響
+## 玩具選擇的心理影響
 
 ### 1. 選擇不當的後果
 
