@@ -9,7 +9,14 @@ const postsCollection = defineCollection({
     category: z.string().optional().default('uncategorized'),
     tags: z.array(z.string()).optional().default([]),
     image: z.string().optional().default(''),
+    imageAlt: z.string().optional().default(''),
     author: z.string().optional().default('媽咪小編'),
+    faq: z.array(z.object({
+      q: z.string().optional(),
+      a: z.string().optional(),
+      question: z.string().optional(),
+      answer: z.string().optional(),
+    })).optional().default([]),
   }),
 });
 

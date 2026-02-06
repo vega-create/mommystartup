@@ -1,5 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
+import BreadcrumbSchema from '../../components/BreadcrumbSchema.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
+import { siteConfig } from '../../site.config';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -12,6 +16,8 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
+const faqs = post.data.faq || [];
+
 const nums = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
 let h2Count = 0;
 let h3Count = 0;
@@ -26,6 +32,12 @@ const tocItems = headings.filter(h => h.depth <= 3).map(h => {
   }
 });
 
+// FAQ 加到目錄
+if (faqs.length > 0) {
+  h2Count++;
+  tocItems.push({ depth: 2, slug: 'faq-section', text: '常見問題 FAQ', label: `${nums[h2Count - 1] || h2Count}、常見問題 FAQ` });
+}
+
 // 取得相關文章
 const allPosts = await getCollection('posts');
 const relatedPosts = allPosts
@@ -38,6 +50,22 @@ const relatedPosts = allPosts
   description={post.data.description}
   image={post.data.image}
 >
+  <!-- Schema 結構化資料 -->
+  <ArticleSchema
+    title={post.data.title}
+    description={post.data.description}
+    publishDate={post.data.publishDate}
+    image={post.data.image}
+    url={siteConfig.url + Astro.url.pathname}
+    category={post.data.category}
+    tags={post.data.tags}
+  />
+  <BreadcrumbSchema items={[
+    { name: '首頁', url: '/' },
+    { name: post.data.category, url: `/category/${post.data.category}/` },
+    { name: post.data.title },
+  ]} />
+
   <article class="article">
     <header class="article-header">
       <a href={`/category/${post.data.category}/`} class="article-category">
@@ -52,6 +80,7 @@ const relatedPosts = allPosts
     {post.data.image && (
       <img src={post.data.image} alt={post.data.title} class="article-image">
     )}
+
     {tocItems.length > 0 && (
       <nav class="toc">
         <p class="toc-title">📑 目錄</p>
@@ -64,9 +93,33 @@ const relatedPosts = allPosts
         </ul>
       </nav>
     )}
+
     <div class="article-content">
       <Content />
     </div>
+
+    <!-- FAQ 區塊 -->
+    {faqs.length > 0 && (
+      <section id="faq-section" class="faq-section">
+        <h2 class="faq-title">❓ 常見問題 FAQ</h2>
+        <div class="faq-list">
+          {faqs.map((faq, i) => (
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Q{i + 1}. {faq.question || faq.q}</span>
+                <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                {faq.answer || faq.a}
+              </div>
+            </details>
+          ))}
+        </div>
+        <FAQSchema faqs={faqs} />
+      </section>
+    )}
     
     <!-- 分享按鈕 -->
     <div class="share-buttons">
@@ -109,6 +162,71 @@ const relatedPosts = allPosts
 </Layout>
 
 <style>
+  .faq-section {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 2px solid var(--primary-light);
+  }
+  
+  .faq-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .faq-item {
+    background: #faf8f6;
+    border: 1px solid #f0ece8;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text);
+    font-size: 15px;
+    list-style: none;
+  }
+  
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  
+  .faq-question:hover {
+    background: #f5f0ec;
+  }
+  
+  .faq-arrow {
+    flex-shrink: 0;
+    transition: transform 0.2s;
+    color: var(--text-light);
+  }
+  
+  details[open] .faq-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .faq-answer {
+    padding: 0 20px 16px;
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 14px;
+    border-top: 1px solid #f0ece8;
+    padding-top: 16px;
+  }
+
   .share-buttons {
     display: flex;
     align-items: center;
@@ -155,6 +273,7 @@ const relatedPosts = allPosts
     font-size: 22px;
     margin-bottom: 25px;
   }
+
   .article-content :global(table) {
     width: 100%;
     border-collapse: separate;
@@ -221,42 +340,7 @@ const relatedPosts = allPosts
     color: var(--text);
     margin: 24px 0 10px;
   }
-  .article-content :global(table) {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin: 30px 0;
-    font-size: 14px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    border: 1px solid #f0ece8;
-  }
-  .article-content :global(thead) {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  }
-  .article-content :global(th) {
-    color: white;
-    font-weight: 600;
-    padding: 14px 20px;
-    text-align: left;
-  }
-  .article-content :global(td) {
-    padding: 12px 20px;
-    border-bottom: 1px solid #f0ece8;
-    color: var(--text);
-    line-height: 1.6;
-  }
-  .article-content :global(tbody tr:nth-child(even)) {
-    background: #faf8f6;
-  }
-  .article-content :global(tbody tr:hover) {
-    background: var(--primary-light);
-    transition: background 0.2s;
-  }
-  .article-content :global(tr:last-child td) {
-    border-bottom: none;
-  }
+
   .toc {
     background: #faf8f6;
     border: 1px solid #f0ece8;
@@ -291,6 +375,7 @@ const relatedPosts = allPosts
     padding-left: 20px;
   }
 </style>
+
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
     const nums = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];

@@ -1,0 +1,49 @@
+---
+import { siteConfig } from '../site.config';
+
+interface Props {
+  title: string;
+  description: string;
+  publishDate: string;
+  image?: string;
+  url: string;
+  category?: string;
+  tags?: string[];
+}
+
+const { title, description, publishDate, image, url, category, tags } = Astro.props;
+
+const imageUrl = image
+  ? (image.startsWith('http') ? image : `${siteConfig.url}${image}`)
+  : `${siteConfig.url}/images/logo.png`;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "image": imageUrl,
+  "datePublished": new Date(publishDate).toISOString(),
+  "dateModified": new Date(publishDate).toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": "媽咪小編",
+    "url": `${siteConfig.url}/about/`
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": siteConfig.name,
+    "url": siteConfig.url,
+    "logo": {
+      "@type": "ImageObject",
+      "url": siteConfig.logo
+    }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": url },
+  ...(category && { "articleSection": category }),
+  ...(tags && tags.length > 0 && { "keywords": tags.join(', ') }),
+  "inLanguage": "zh-TW"
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
