@@ -70,6 +70,7 @@ export const siteConfig = {
   // AdSense
   adsense: {
     client: 'ca-pub-3493526929407874',
+    enabled: true,
     slots: {
       header: '',
       sidebar: '',
