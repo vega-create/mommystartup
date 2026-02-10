@@ -4,7 +4,7 @@ description: "> 前言 >  >  >  >  >  > 隨著數位時代的來臨，越來越�
 publishDate: 2024-10-18
 category: "行銷"
 tags: ['個人品牌', '媽咪', '心法', '社群行銷', '行銷策略']
-image: "https://mommystartup.com/wp-content/uploads/2024/10/3.png"
+image: "/wp-content/uploads/2024/10/3.png"
 author: "作者"
 ---
 

@@ -4,7 +4,7 @@ description: "> 短影音當道，但很多小編或小老闆卻常說：「我�
 publishDate: 2025-06-11
 category: "行銷"
 tags: ['chatgpt', '兼職', '媽咪', '斜槓', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2025/06/06月圖片.png"
+image: "/wp-content/uploads/2025/06/06月圖片.png"
 author: "作者"
 ---
 

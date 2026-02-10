@@ -4,7 +4,7 @@ description: "> 作為一名團購媽咪，能夠成功與廠商合作是你團�
 publishDate: 2024-10-01
 category: "團購"
 tags: ['兼職', '團購', '媽咪', '斜槓']
-image: "https://mommystartup.com/wp-content/uploads/2024/10/cowomen-cKQkMFzXHAI-unsplash.jpg"
+image: "/wp-content/uploads/2024/10/cowomen-cKQkMFzXHAI-unsplash.jpg"
 author: "作者"
 ---
 

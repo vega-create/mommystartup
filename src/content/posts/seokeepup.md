@@ -4,7 +4,7 @@ description: "> 如果你已經掌握了SEO（搜尋引擎優化）的基本知�
 publishDate: 2024-08-26
 category: "行銷"
 tags: ['SEO', '媽咪', '斜槓']
-image: "https://mommystartup.com/wp-content/uploads/2024/08/carl-heyerdahl-KE0nC8-58MQ-unsplash.jpg"
+image: "/wp-content/uploads/2024/08/carl-heyerdahl-KE0nC8-58MQ-unsplash.jpg"
 author: "作者"
 ---
 

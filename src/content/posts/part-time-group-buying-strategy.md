@@ -4,7 +4,7 @@ description: "> 在現代社會，越來越多的人選擇兼職作為額外收�
 publishDate: 2024-08-23
 category: "團購"
 tags: []
-image: "https://mommystartup.com/wp-content/uploads/2024/08/1.png"
+image: "/wp-content/uploads/2024/08/1.png"
 author: "作者"
 ---
 

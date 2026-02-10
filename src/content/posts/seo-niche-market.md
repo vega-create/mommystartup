@@ -4,7 +4,7 @@ description: "> 在育兒的旅程中，每位媽媽都有自己獨特的經驗�
 publishDate: 2024-11-18
 category: "行銷"
 tags: ['SEO', '媽咪', '斜槓', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2024/11/kobu-agency-7okkFhxrxNw-unsplash.jpg"
+image: "/wp-content/uploads/2024/11/kobu-agency-7okkFhxrxNw-unsplash.jpg"
 author: "作者"
 ---
 

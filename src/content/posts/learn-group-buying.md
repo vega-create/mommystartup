@@ -4,7 +4,7 @@ description: "> 如果你是一位全職媽媽，可能常常會覺得生活被�
 publishDate: 2024-10-28
 category: "團購"
 tags: ['兼職', '團購', '團購入門', '媽咪', '心法', '斜槓']
-image: "https://mommystartup.com/wp-content/uploads/2024/10/pexels-hillaryfox-1595387.jpg"
+image: "/wp-content/uploads/2024/10/pexels-hillaryfox-1595387.jpg"
 author: "作者"
 ---
 

@@ -4,7 +4,7 @@ description: "> 在社群行銷的世界裡，圖片就是你的門面，尤其�
 publishDate: 2024-09-23
 category: "行銷"
 tags: ['SEO', '媽咪', '社群行銷', '製圖工具']
-image: "https://mommystartup.com/wp-content/uploads/2024/09/pexels-kseverin-1542252.jpg"
+image: "/wp-content/uploads/2024/09/pexels-kseverin-1542252.jpg"
 author: "作者"
 ---
 

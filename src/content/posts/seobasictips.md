@@ -4,7 +4,7 @@ description: "> 想要打造成功的斜槓事業，媽咪們一定要學會所�
 publishDate: 2024-08-07
 category: "行銷"
 tags: ['SEO', '斜槓']
-image: "https://mommystartup.com/wp-content/uploads/2024/08/corinne-kutz-tMI2_-r5Nfo-unsplash.jpg"
+image: "/wp-content/uploads/2024/08/corinne-kutz-tMI2_-r5Nfo-unsplash.jpg"
 author: "作者"
 ---
 

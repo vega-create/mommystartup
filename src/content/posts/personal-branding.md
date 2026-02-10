@@ -4,7 +4,7 @@ description: "> 隨著社群媒體的興起，越來越多的媽咪們開始利�
 publishDate: 2024-09-02
 category: "行銷"
 tags: ['個人品牌', '媽咪', '斜槓', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2024/08/nathana-reboucas-Xfs4JHzLR-g-unsplash.jpg"
+image: "/wp-content/uploads/2024/08/nathana-reboucas-Xfs4JHzLR-g-unsplash.jpg"
 author: "作者"
 ---
 

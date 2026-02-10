@@ -4,7 +4,7 @@ description: "> 作為斜槓媽咪，團購不僅是一種節省金錢的方式�
 publishDate: 2024-10-14
 category: "團購"
 tags: ['兼職', '團購', '媽咪', '斜槓']
-image: "https://mommystartup.com/wp-content/uploads/2024/10/mimi-thian-vdXMSiX-n6M-unsplash.jpg"
+image: "/wp-content/uploads/2024/10/mimi-thian-vdXMSiX-n6M-unsplash.jpg"
 author: "作者"
 ---
 

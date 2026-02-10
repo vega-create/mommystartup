@@ -118,7 +118,7 @@ img {
   height: 70vh;
   max-height: 600px;
   min-height: 400px;
-  background-image: url('https://mommystartup.com/wp-content/uploads/2018/08/bg-header.jpg');
+  background-image: url('/wp-content/uploads/2018/08/bg-header.jpg');
   background-size: cover;
   background-position: center;
   display: flex;

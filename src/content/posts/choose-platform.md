@@ -4,7 +4,7 @@ description: "> 在媽咪們的忙碌生活中，要平衡家庭育兒與自我�
 publishDate: 2024-12-03
 category: "行銷"
 tags: ['兼職', '媽咪', '斜槓', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2024/12/merakist-CNbRsQj8mHQ-unsplash.jpg"
+image: "/wp-content/uploads/2024/12/merakist-CNbRsQj8mHQ-unsplash.jpg"
 author: "作者"
 ---
 

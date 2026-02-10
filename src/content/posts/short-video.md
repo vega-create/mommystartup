@@ -4,7 +4,7 @@ description: "> 前言 >  >  >  >  >  > 隨著社群媒體的發展，短影音�
 publishDate: 2025-02-21
 category: "行銷"
 tags: ['個人品牌', '斜槓', '新手媽咪', '短影音行銷', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2025/02/2.png"
+image: "/wp-content/uploads/2025/02/2.png"
 author: "作者"
 ---
 

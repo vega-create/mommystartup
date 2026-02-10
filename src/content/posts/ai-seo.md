@@ -4,7 +4,7 @@ description: "## 前言  在數位行銷的世界裡，內容為王，而 SEO（
 publishDate: 2025-04-16
 category: "行銷"
 tags: ['AI', 'SEO', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2025/04/1.png"
+image: "/wp-content/uploads/2025/04/1.png"
 author: "作者"
 ---
 

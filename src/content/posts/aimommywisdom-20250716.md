@@ -4,7 +4,7 @@ description: "前言：  內容發了一篇又一篇，貼文按讚數也不算�
 publishDate: 2025-07-16
 category: "行銷"
 tags: ['媽咪', '斜槓', '社群行銷', '行銷']
-image: "https://mommystartup.com/wp-content/uploads/2025/07/1.png"
+image: "/wp-content/uploads/2025/07/1.png"
 author: "作者"
 ---
 

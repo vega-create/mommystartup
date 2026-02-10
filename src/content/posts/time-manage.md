@@ -4,7 +4,7 @@ description: "> 作為全職媽媽，日常時間總是被孩子的需求填滿�
 publishDate: 2024-11-11
 category: "行銷"
 tags: ['SEO', '媽咪', '學習', '斜槓', '時間管理']
-image: "https://mommystartup.com/wp-content/uploads/2024/11/niklas-rhose-r-EecLdRRww-unsplash.jpg"
+image: "/wp-content/uploads/2024/11/niklas-rhose-r-EecLdRRww-unsplash.jpg"
 author: "作者"
 ---
 

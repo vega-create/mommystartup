@@ -4,7 +4,7 @@ description: "> 在上一篇文章[打造成功斜槓，媽咪們必學的SEO技
 publishDate: 2024-08-13
 category: "行銷"
 tags: ['SEO', '斜槓']
-image: "https://mommystartup.com/wp-content/uploads/2024/08/pexels-ketut-subiyanto-4126743.jpg"
+image: "/wp-content/uploads/2024/08/pexels-ketut-subiyanto-4126743.jpg"
 author: "作者"
 ---
 

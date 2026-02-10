@@ -4,7 +4,7 @@ description: "> 前言 >  >  >  >  >  > 在當今數位時代，越來越多媽�
 publishDate: 2024-10-04
 category: "行銷"
 tags: ['兼職', '品牌影響力', '媽咪', '心法', '斜槓', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2024/10/1.png"
+image: "/wp-content/uploads/2024/10/1.png"
 author: "作者"
 ---
 

@@ -4,7 +4,7 @@ description: "> 前言 >  >  >  >  >  > 在數位時代，越來越多媽咪選�
 publishDate: 2025-03-12
 category: "行銷"
 tags: ['Ai行銷', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2025/03/2.png"
+image: "/wp-content/uploads/2025/03/2.png"
 author: "作者"
 ---
 

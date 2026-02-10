@@ -4,7 +4,7 @@ description: "作為一名全職媽咪，時間總是顯得特別珍貴。在忙
 publishDate: 2024-12-09
 category: "行銷"
 tags: ['媽咪', '斜槓', '時間管理', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2024/12/icons8-team-dhZtNlvNE8M-unsplash.jpg"
+image: "/wp-content/uploads/2024/12/icons8-team-dhZtNlvNE8M-unsplash.jpg"
 author: "作者"
 ---
 

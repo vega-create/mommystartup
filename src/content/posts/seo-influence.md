@@ -4,7 +4,7 @@ description: "> 許多在家工作的斜槓媽媽們希望透過經營部落格�
 publishDate: 2024-09-20
 category: "行銷"
 tags: ['SEO', '兼職', '品牌影響力']
-image: "https://mommystartup.com/wp-content/uploads/2024/09/1-1.png"
+image: "/wp-content/uploads/2024/09/1-1.png"
 author: "作者"
 ---
 

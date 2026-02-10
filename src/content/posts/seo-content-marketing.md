@@ -4,7 +4,7 @@ description: ">  > 在現今的數位時代，很多斜槓媽媽選擇透過部�
 publishDate: 2024-09-06
 category: "行銷"
 tags: ['SEO', '內容行銷與SEO', '搜尋引擎', '斜槓', '部落格']
-image: "https://mommystartup.com/wp-content/uploads/2024/09/1.png"
+image: "/wp-content/uploads/2024/09/1.png"
 author: "作者"
 ---
 

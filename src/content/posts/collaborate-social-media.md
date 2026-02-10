@@ -4,7 +4,7 @@ description: "## 前言：為什麼品牌合作對媽咪很重要？  > 對於�
 publishDate: 2024-12-24
 category: "行銷"
 tags: ['個人品牌', '兼職', '媽咪', '心法', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2024/12/cowomen-3ALW9V3jNkc-unsplash.jpg"
+image: "/wp-content/uploads/2024/12/cowomen-3ALW9V3jNkc-unsplash.jpg"
 author: "作者"
 ---
 

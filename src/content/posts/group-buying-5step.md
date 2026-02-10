@@ -4,7 +4,7 @@ description: "> 你是否曾經在媽媽群組中看到過團購活動，但不�
 publishDate: 2024-07-10
 category: "團購"
 tags: ['團購']
-image: "https://mommystartup.com/wp-content/uploads/2024/07/pexels-elevate-1267696-small.jpg"
+image: "/wp-content/uploads/2024/07/pexels-elevate-1267696-small.jpg"
 author: "作者"
 ---
 

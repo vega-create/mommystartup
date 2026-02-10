@@ -4,7 +4,7 @@ description: "隨著社群媒體的快速發展，許多媽咪也開始經營自
 publishDate: 2024-09-16
 category: "行銷"
 tags: ['媽咪', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2024/09/patrick-tomasso-IDN8NVELy0E-unsplash.jpg"
+image: "/wp-content/uploads/2024/09/patrick-tomasso-IDN8NVELy0E-unsplash.jpg"
 author: "作者"
 ---
 

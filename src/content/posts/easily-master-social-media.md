@@ -4,7 +4,7 @@ description: "> 社群媒體這麼多，一個人可能同時就有好幾個同�
 publishDate: 2024-09-10
 category: "行銷"
 tags: ['個人品牌', '媽咪', '斜槓', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2024/09/timothy-hales-bennett-OwvRB-M3GwE-unsplash.jpg"
+image: "/wp-content/uploads/2024/09/timothy-hales-bennett-OwvRB-M3GwE-unsplash.jpg"
 author: "作者"
 ---
 

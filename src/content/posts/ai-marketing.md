@@ -4,7 +4,7 @@ description: "> 在數位時代，行銷已不再限於傳統廣告。對於專�
 publishDate: 2025-01-24
 category: "行銷"
 tags: []
-image: "https://mommystartup.com/wp-content/uploads/2025/01/1.png"
+image: "/wp-content/uploads/2025/01/1.png"
 author: "作者"
 ---
 

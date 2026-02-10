@@ -4,7 +4,7 @@ description: "> 在團購過程中，產品的品質和售後服務是每位媽�
 publishDate: 2024-10-21
 category: "團購"
 tags: ['兼職', '團購', '媽咪', '斜槓']
-image: "https://mommystartup.com/wp-content/uploads/2024/10/brooke-cagle-uHVRvDr7pg-unsplash.jpg"
+image: "/wp-content/uploads/2024/10/brooke-cagle-uHVRvDr7pg-unsplash.jpg"
 author: "作者"
 ---
 

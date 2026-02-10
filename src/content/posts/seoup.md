@@ -4,7 +4,7 @@ description: "> 在前幾篇文章中，我們探討了SEO（搜尋引擎優化�
 publishDate: 2024-08-19
 category: "行銷"
 tags: ['SEO', '媽咪', '斜槓']
-image: "https://mommystartup.com/wp-content/uploads/2024/08/nick-morrison-FHnnjk1Yj7Y-unsplash.jpg"
+image: "/wp-content/uploads/2024/08/nick-morrison-FHnnjk1Yj7Y-unsplash.jpg"
 author: "作者"
 ---
 

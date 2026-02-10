@@ -4,7 +4,7 @@ description: "> Hi~今天我們來聊聊兼職，在現今競爭激烈的經濟�
 publishDate: 2024-08-09
 category: "行銷"
 tags: ['全職媽媽', '兼職', '團購', '團購入門', '心法', '斜槓']
-image: "https://mommystartup.com/wp-content/uploads/2024/08/團購之路-1.png"
+image: "/wp-content/uploads/2024/08/團購之路-1.png"
 author: "作者"
 ---
 

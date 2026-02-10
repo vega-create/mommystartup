@@ -4,7 +4,7 @@ description: "> 在社群行銷的世界裡，粉絲數量並不是唯一的成�
 publishDate: 2024-12-17
 category: "行銷"
 tags: ['兼職', '媽咪', '心法', '斜槓', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2024/12/brooke-cagle-Uduc5hJX2Ew-unsplash.jpg"
+image: "/wp-content/uploads/2024/12/brooke-cagle-Uduc5hJX2Ew-unsplash.jpg"
 author: "作者"
 ---
 

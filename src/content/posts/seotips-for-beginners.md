@@ -4,7 +4,7 @@ description: "> 前言 >  >  >  >  >  > 對許多開始斜槓生活的媽咪來�
 publishDate: 2024-12-27
 category: "行銷"
 tags: ['SEO', '個人品牌', '斜槓', '新手seo', '社群行銷']
-image: "https://mommystartup.com/wp-content/uploads/2024/12/4.png"
+image: "/wp-content/uploads/2024/12/4.png"
 author: "作者"
 ---
 

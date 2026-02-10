@@ -4,7 +4,7 @@ description: "> 在進行協槓的路上，許多媽媽會擔心自己的文字�
 publishDate: 2024-11-25
 category: "行銷"
 tags: ['SEO', '兼職', '媽咪', '心法', '斜槓']
-image: "https://mommystartup.com/wp-content/uploads/2024/11/thought-catalog-505eectW54k-unsplash.jpg"
+image: "/wp-content/uploads/2024/11/thought-catalog-505eectW54k-unsplash.jpg"
 author: "作者"
 ---
 

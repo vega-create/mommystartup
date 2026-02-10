@@ -4,7 +4,7 @@ description: "> 前言：從團購新手到團媽達人，你也可以做到！�
 publishDate: 2024-11-22
 category: "團購"
 tags: ['兼職', '團購', '成功案例', '斜槓', '新手團媽']
-image: "https://mommystartup.com/wp-content/uploads/2024/11/1.png"
+image: "/wp-content/uploads/2024/11/1.png"
 author: "作者"
 ---
 

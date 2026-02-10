@@ -4,7 +4,7 @@ description: "> 你有沒有發現，有些文章或部落格在搜尋結果中�
 publishDate: 2024-11-04
 category: "行銷"
 tags: ['SEO', '兼職', '媽咪', '斜槓']
-image: "https://mommystartup.com/wp-content/uploads/2024/11/mimi-thian-lp1AKIUV3yo-unsplash.jpg"
+image: "/wp-content/uploads/2024/11/mimi-thian-lp1AKIUV3yo-unsplash.jpg"
 author: "作者"
 ---
 

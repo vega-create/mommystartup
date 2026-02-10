@@ -19,8 +19,8 @@ export const siteConfig = {
   },
   
   // Logo
-  logo: 'https://mommystartup.com/wp-content/uploads/2023/02/2-removebg-preview-e1676949771313.png',
-  favicon: 'https://mommystartup.com/wp-content/uploads/2026/01/媽咪小編-logo-沒去背.png',
+  logo: '/wp-content/uploads/2023/02/2-removebg-preview-e1676949771313.png',
+  favicon: '/wp-content/uploads/2026/01/媽咪小編-logo-沒去背.png',
   
   // 導航
   nav: [
@@ -51,19 +51,19 @@ export const siteConfig = {
       name: '智慧媽咪',
       description: '行銷 × AI × 系統整合',
       url: 'https://aimommywisdom.com',
-      logo: 'https://mommystartup.com/wp-content/uploads/2025/12/智慧媽咪logo-300x300.png'
+      logo: '/wp-content/uploads/2025/12/智慧媽咪logo-300x300.png'
     },
     {
       name: 'Vega 行銷教室',
       description: '實戰、系統、成長紀錄',
       url: 'https://vegamarketroom.net',
-      logo: 'https://mommystartup.com/wp-content/uploads/2025/12/薇佳-1-150x150.png'
+      logo: '/wp-content/uploads/2025/12/薇佳-1-150x150.png'
     },
     {
       name: '媽媽喘息空間',
       description: '陪你慢慢長大',
       url: 'https://chparenting.com',
-      logo: 'https://mommystartup.com/wp-content/uploads/2025/12/586089133_1325168209623436_1995080409380657151_n-150x150.jpg'
+      logo: '/wp-content/uploads/2025/12/586089133_1325168209623436_1995080409380657151_n-150x150.jpg'
     }
   ],
   

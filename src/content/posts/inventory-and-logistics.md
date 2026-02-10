@@ -4,7 +4,7 @@ description: "> 身為團購媽咪，能順利管理庫存和物流是成功的�
 publishDate: 2024-10-07
 category: "團購"
 tags: ['兼職', '團購', '媽咪', '斜槓']
-image: "https://mommystartup.com/wp-content/uploads/2024/10/john-schnobrich-FlPc9_VocJ4-unsplash.jpg"
+image: "/wp-content/uploads/2024/10/john-schnobrich-FlPc9_VocJ4-unsplash.jpg"
 author: "作者"
 ---
 
