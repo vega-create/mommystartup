@@ -5,7 +5,7 @@ publishDate: 2024-11-11
 category: "行銷"
 tags: ['SEO', '媽咪', '學習', '斜槓', '時間管理']
 image: "/wp-content/uploads/2024/11/niklas-rhose-r-EecLdRRww-unsplash.jpg"
-author: "作者"
+author: "媽咪小編"
 ---
 
 作為全職媽媽，日常時間總是被孩子的需求填滿，要學習新知識、增進技能似乎很難。學SEO或許會讓人有些壓力，但其實只要善用零碎時間，也能一點一滴累積進步。這篇文章就是專門為忙碌的媽媽們設計的小攻略，教你如何在育兒之餘慢慢學習SEO，並把它融入你的協槓事業中！

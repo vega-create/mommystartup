@@ -5,7 +5,7 @@ publishDate: 2024-08-19
 category: "行銷"
 tags: ['SEO', '媽咪', '斜槓']
 image: "/wp-content/uploads/2024/08/nick-morrison-FHnnjk1Yj7Y-unsplash.jpg"
-author: "作者"
+author: "媽咪小編"
 ---
 
 在前幾篇文章中，我們探討了SEO（搜尋引擎優化）的基本概念以及一些簡單實用的策略，幫助新手媽咪們提升斜槓收入。本篇文章將進一步介紹如何利用一些進階的SEO技巧，幫助你更上一層樓。

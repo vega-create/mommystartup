@@ -5,7 +5,7 @@ publishDate: 2024-10-21
 category: "團購"
 tags: ['兼職', '團購', '媽咪', '斜槓']
 image: "/wp-content/uploads/2024/10/brooke-cagle-uHVRvDr7pg-unsplash.jpg"
-author: "作者"
+author: "媽咪小編"
 ---
 
 在團購過程中，產品的品質和售後服務是每位媽咪最關心的問題之一。隨著團購的興起，如何確保所購產品的品質與良好的售後服務成為成功團購的關鍵。這篇文章將分享幾個簡單卻有效的技巧，幫助斜槓媽咪們在團購中取得更好的成果。

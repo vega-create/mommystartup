@@ -6,6 +6,7 @@ export const siteConfig = {
   description: '幫助媽媽們用科技與團購，把時間留給愛與陪伴。',
   url: 'https://mommystartup.com',
   language: 'zh-TW',
+  author: '媽咪小編',
 
   // 品牌色彩（shop 粉色系）
   colors: {

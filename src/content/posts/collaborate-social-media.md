@@ -5,7 +5,7 @@ publishDate: 2024-12-24
 category: "行銷"
 tags: ['個人品牌', '兼職', '媽咪', '心法', '社群行銷']
 image: "/wp-content/uploads/2024/12/cowomen-3ALW9V3jNkc-unsplash.jpg"
-author: "作者"
+author: "媽咪小編"
 ---
 
 ## 前言：為什麼品牌合作對媽咪很重要？

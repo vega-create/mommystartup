@@ -67,13 +67,22 @@ const relatedPosts = allPosts
   ]} />
 
   <article class="article">
+    <!-- 麵包屑導航 -->
+    <nav class="breadcrumb">
+      <a href="/">首頁</a>
+      <span>›</span>
+      <a href={`/category/${post.data.category}/`}>{post.data.category}</a>
+      <span>›</span>
+      <span class="current">{post.data.title}</span>
+    </nav>
+
     <header class="article-header">
       <a href={`/category/${post.data.category}/`} class="article-category">
         {post.data.category}
       </a>
       <h1 class="article-title">{post.data.title}</h1>
       <p class="article-meta">
-        {post.data.author} · {new Date(post.data.publishDate).toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' })}
+        {siteConfig.author} · {new Date(post.data.publishDate).toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' })}
       </p>
     </header>
     
@@ -121,6 +130,24 @@ const relatedPosts = allPosts
       </section>
     )}
     
+    <!-- 標籤 -->
+    {post.data.tags && post.data.tags.length > 0 && (
+      <div class="article-tags">
+        {post.data.tags.map(tag => (
+          <span class="tag">#{tag}</span>
+        ))}
+      </div>
+    )}
+
+    <!-- 作者框 -->
+    <div class="author-box">
+      <div class="author-avatar">👩‍💻</div>
+      <div class="author-info">
+        <a href="/about/" class="author-name">{siteConfig.author}</a>
+        <p class="author-bio">科技，是為了讓我們有更多時間去愛。幫助媽媽們用科技與團購，把時間留給愛與陪伴。</p>
+      </div>
+    </div>
+
     <!-- 分享按鈕 -->
     <div class="share-buttons">
       <span>分享文章：</span>
@@ -395,3 +422,68 @@ const relatedPosts = allPosts
     });
   });
 </script>
+
+<style>
+  .breadcrumb {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+  }
+  .breadcrumb a {
+    color: var(--text-light);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover {
+    color: var(--primary-dark);
+  }
+  .breadcrumb span {
+    margin: 0 6px;
+  }
+  .breadcrumb .current {
+    color: var(--text);
+    margin: 0;
+  }
+  .article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 30px;
+  }
+  .tag {
+    background: #faf8f6;
+    border: 1px solid #f0ece8;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  .author-box {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    background: #faf8f6;
+    border: 1px solid #f0ece8;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  .author-avatar {
+    font-size: 40px;
+    flex-shrink: 0;
+  }
+  .author-name {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .author-name:hover {
+    color: var(--primary-dark);
+  }
+  .author-bio {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 4px;
+    line-height: 1.6;
+  }
+</style>

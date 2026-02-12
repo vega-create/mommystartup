@@ -5,7 +5,7 @@ publishDate: 2024-10-18
 category: "行銷"
 tags: ['個人品牌', '媽咪', '心法', '社群行銷', '行銷策略']
 image: "/wp-content/uploads/2024/10/3.png"
-author: "作者"
+author: "媽咪小編"
 ---
 
 前言

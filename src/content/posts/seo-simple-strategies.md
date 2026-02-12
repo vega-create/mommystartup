@@ -5,7 +5,7 @@ publishDate: 2024-08-13
 category: "行銷"
 tags: ['SEO', '斜槓']
 image: "/wp-content/uploads/2024/08/pexels-ketut-subiyanto-4126743.jpg"
-author: "作者"
+author: "媽咪小編"
 ---
 
 在上一篇文章[打造成功斜槓，媽咪們必學的SEO技巧](https://mommystartup.com/seobasictips/)，我們介紹了SEO（搜尋引擎優化）的基礎知識，幫助你為斜槓副業打好基礎。這次，我們將進一步介紹一些簡單易懂的策略，讓你可以輕鬆提升副業的收入唷！

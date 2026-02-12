@@ -5,7 +5,7 @@ publishDate: 2024-08-07
 category: "行銷"
 tags: ['SEO', '斜槓']
 image: "/wp-content/uploads/2024/08/corinne-kutz-tMI2_-r5Nfo-unsplash.jpg"
-author: "作者"
+author: "媽咪小編"
 ---
 
 想要打造成功的斜槓事業，媽咪們一定要學會所謂的SEO（搜尋引擎優化）技巧，接下來為媽咪們簡單介紹這項工具。

@@ -5,7 +5,7 @@ publishDate: 2024-10-01
 category: "團購"
 tags: ['兼職', '團購', '媽咪', '斜槓']
 image: "/wp-content/uploads/2024/10/cowomen-cKQkMFzXHAI-unsplash.jpg"
-author: "作者"
+author: "媽咪小編"
 ---
 
 作為一名團購媽咪，能夠成功與廠商合作是你團購事業的關鍵。這篇文章將教你如何在接洽廠商時，爭取到有利條件，為你的團購活動提供優質產品。

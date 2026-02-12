@@ -5,7 +5,7 @@ publishDate: 2025-04-16
 category: "行銷"
 tags: ['AI', 'SEO', '社群行銷']
 image: "/wp-content/uploads/2025/04/1.png"
-author: "作者"
+author: "媽咪小編"
 ---
 
 ## 前言
